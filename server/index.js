@@ -25,10 +25,6 @@ resultResponse = (status, data, msg) => {
   return result;
 }
 
-app.get("/", (req, res) => {
-  res.send(resultResponse(0, null, "HOME ROOT"));
-})
-
 // server hosted at localhost:3300
 app.listen(PORT, () => {
   console.log("Listening on port " + PORT);
