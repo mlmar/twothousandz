@@ -159,7 +159,7 @@ button {
 .nav > .routes {
   display: flex;
   flex-direction: column;
-  width: 25vw;
+  width: 20vw;
   height: 100vh;
   background: var(--bg-light-clear);
   padding: 7rem 3rem 3rem 3rem;
@@ -168,7 +168,7 @@ button {
 
 .nav > .routes > * {
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: none;
   height: 2.3rem;
   font-size: 1.3rem;
@@ -277,16 +277,25 @@ button {
     opacity: 1;
   }
   75% {
-    opacity: 1
+    opacity: 1;
   }
   100% {
     opacity: 0;
   }
 }
 
+@keyframes move {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .animate-gallery {
-  animation: gallery 8s ease-in-out;
-  animation-iteration-count: infinite;
+  animation: gallery 8s ease-in-out; /* , move 8s linear;*/
+  animation-fill-mode: forwards;
 }
 
 .overlay-gallery button.menu,
@@ -321,12 +330,12 @@ button {
 }
 
 .gallery .slogan:after {
-  content: "Inspirational slogan";
-  top: 80%;
+  content: "free and foolish, 2000'z";
+  top: 70%;
   left: 0;
   transform: scaleY(-1.2);
   position: absolute;
-  background-image: linear-gradient(hsla(0, 0%, 100%, 0) 28%, rgba(255, 255, 255, 0.145));
+  background-image: linear-gradient(hsla(0, 0%, 100%, 0) 28%, rgba(255, 255, 255, 0.118));
   background-clip: text;
   color: transparent;
 }
@@ -335,13 +344,13 @@ button {
   display: flex;
   flex-direction: column;
   flex: 1 1;
-  overflow: overlay;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
 }
 
 .gallery .images > .wrapper {
-  width: 70%;
+  width: 100%;
 }
 
 .gallery .images > .wrapper > img {

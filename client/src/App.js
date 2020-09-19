@@ -15,7 +15,7 @@ import DemoGallery from './js/modules/demo/DemoGallery.js';
 
 const ROUTES = [
   { name : "Landing Page", path : "/" , class : "homepage" },
-  { name : "Gallery Demo", path : "/demo/gallery" , class: "gallery"},
+  { name : "Gallery Demo 'LifeStyle'", path : "/demo/gallery" , class: "gallery"},
   { name : "CSS Demo", path : "/demo/css" , class : "democss"},
   { name : "JS Demo", path : "/demo/js" , class : "demojs"},
 ];
