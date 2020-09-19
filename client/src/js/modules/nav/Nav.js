@@ -23,12 +23,11 @@ class Nav extends React.Component {
   }
 
   /*  On click event handler for nav buttons
-   *    passed id number to props callback
-   *    (if we stick react router, remove this);
+   *    passed overlay class to props callback
    */
   handleClick(e) {
-    var index = parseInt(e.target.id);
-    if(this.props.onClick) this.props.onClick(index);
+    var id = e.target.id;
+    if(this.props.onClick) this.props.onClick(id);
     this.toggle();
   }
 
@@ -40,12 +39,12 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <div className="nav">
+      <div className={`nav visible ${this.state.dropped}`}>
         <button className="menu" onClick={this.toggle}> {ICON.MENU} </button> 
-        <div className={"routes visible " + this.state.dropped}>
+        <div className={`routes`}>
           {
             this.props?.routes.map((route, i) => {
-              return <Link to={route.path} id={i} key={i} onClick={this.handleClick}> {route.name} </Link>
+              return <Link to={route.path} id={route.class} key={i} onClick={this.handleClick}> {route.name} </Link>
             })
           }
         </div>

@@ -7,20 +7,21 @@
   .title { font-size: 5rem }
   .subtitle { font-size: 3rem; }
 
-  label {
+  /* label {
     white-space: normal;
-  }
+  } */
 
   /* animate nav */
   .nav > .routes {
     width: 100vw;
   }
 
-  .nav > .routes.visible.false {
+  .nav.visible.false > .routes {
     margin-left: -100vw;
   }
 
   .homepage {
+    flex-direction: column;
     padding: 5rem 1rem 1rem 1rem;
   }
 
