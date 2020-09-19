@@ -8,6 +8,7 @@ class Footer extends React.Component {
         <label> kris </label>
         <label> brian </label>
         <label> johnny </label>
+        <label> steven </label>
         <label> sunny </label>
         <label> marcus </label>
       </div>

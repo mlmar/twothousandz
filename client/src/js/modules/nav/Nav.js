@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ICON = {
   MENU : <> &#8801; </>
@@ -6,7 +7,7 @@ const ICON = {
 
 /*  Nav component
  *    required props:
- *      {onClick} : click handler for nav buttons
+ *      {onClick} : click handler for nav buttons (not necessary with react router)
  *      {routes}  : titles of reach of page to show as nav buttons
  */
 class Nav extends React.Component {
@@ -22,7 +23,8 @@ class Nav extends React.Component {
   }
 
   /*  On click event handler for nav buttons
-   *    passe id number to props callback
+   *    passed id number to props callback
+   *    (if we stick react router, remove this);
    */
   handleClick(e) {
     var index = parseInt(e.target.id);
@@ -43,7 +45,7 @@ class Nav extends React.Component {
         <div className={"routes visible " + this.state.dropped}>
           {
             this.props?.routes.map((route, i) => {
-              return <button id={i} key={i} onClick={this.handleClick}> {route} </button>
+              return <Link to={route.path} id={i} key={i} onClick={this.handleClick}> {route.name} </Link>
             })
           }
         </div>

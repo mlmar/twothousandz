@@ -63,7 +63,10 @@ label { white-space: nowrap; }
 /* BUTTONS AND CLICKABLES */
 
 a, a[href], button {
+  display: inherit;
   cursor: pointer;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 button {
@@ -78,6 +81,7 @@ button {
 .dark, .light {
   padding: .3rem 1rem .3rem 1rem;
   transition: all .5s ease;
+  box-shadow: 0 0 1px 1px rgb(233, 233, 233);
 }
 
 .dark {
@@ -155,7 +159,7 @@ button {
   transition: margin .4s ease-in-out, visibility 1s;
 }
 
-.nav > .routes > button {
+.nav > .routes > * {
   align-items: center;
   justify-content: center;
   background: none;
@@ -163,7 +167,7 @@ button {
   font-size: 1.3rem;
 }
 
-.nav > .routes > button:not(:last-child) {
+.nav > .routes > *:not(:last-child) {
   margin-bottom: 2rem;
 }
 

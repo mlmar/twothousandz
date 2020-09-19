@@ -1,7 +1,14 @@
 @media only screen and (max-width: 768px) {
 
   html {
-    font-size: 50%;
+    font-size: 100%;
+  }
+
+  .title { font-size: 5rem }
+  .subtitle { font-size: 3rem; }
+
+  label {
+    white-space: normal;
   }
 
   /* animate nav */
@@ -12,4 +19,9 @@
   .nav > .routes.visible.false {
     margin-left: -100vw;
   }
+
+  .homepage {
+    padding: 5rem 1rem 1rem 1rem;
+  }
+
 }

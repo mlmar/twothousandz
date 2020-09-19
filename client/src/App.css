@@ -23,6 +23,10 @@ html, body, #root, .App {
   flex-direction: column;
 }
 
+html, boddy {
+  position: fixed;
+}
+
 .App *, .App *:before, .App *:after {
   padding: 0;
   margin: 0;
