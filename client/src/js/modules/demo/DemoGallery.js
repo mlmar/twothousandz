@@ -1,5 +1,6 @@
 import React from 'react';
-import images from '../../util/Images.js';
+import { placeholders } from '../../util/Images.js';
+import Wrapper from '../helper/Wrapper.js';
 
 const SLOGAN = "free and foolish";
 
@@ -7,11 +8,7 @@ class DemoGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      image : (
-        <span className="wrapper animate-gallery"> 
-          <img src={images[0].src} width="200" alt={images[0].src}/> 
-        </span>
-      )
+      image : <Wrapper classes="animate-gallery" src={placeholders[0].src} width="200"/> 
     }
 
     this.index = 0;
@@ -21,13 +18,9 @@ class DemoGallery extends React.Component {
 
   componentDidMount() {
     this.imgInterval = setInterval(() => {
-      this.index = this.index < images.length - 1 ? this.index + 1 : 0;
-      this.setState({ 
-        image : (
-          <span className="wrapper animate-gallery" key={this.index}> 
-            <img src={images[this.index].src} width="200" alt={images[this.index].src}/> 
-          </span>
-        )
+      this.index = this.index < placeholders.length - 1 ? this.index + 1 : 0;
+      this.setState({
+        image : <Wrapper classs="animate-gallery" src={placeholders[this.index].src} width="200" key={this.index}/>
       })
     }, 8000);
     this.props.onMount("gallery")

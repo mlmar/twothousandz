@@ -26,11 +26,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #131313;
+  background: #acacac;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8888886b;
+  background: #5e5e5e6b;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -159,11 +159,11 @@ button {
 .nav > .routes {
   display: flex;
   flex-direction: column;
-  width: 20vw;
+  width: 20rem;
   height: 100vh;
   background: var(--bg-light-clear);
   padding: 7rem 3rem 3rem 3rem;
-  transition: margin .4s ease-in-out, visibility 1s;
+  transition: margin .4s, visibility 1s;
 }
 
 .nav > .routes > * {
@@ -187,7 +187,7 @@ button {
 
 .nav.visible.false > .routes {
   visibility: hidden;
-  margin-left: -25vw;
+  margin-left: -20rem;
 }
 
 .nav.visible.true > button.menu {
@@ -353,7 +353,27 @@ button {
   width: 100%;
 }
 
-.gallery .images > .wrapper > img {
+.wrapper > img {
   height: auto;
   width: 100%;
+}
+
+
+
+/* LAYOUT */
+
+.layout {
+  display: flex;
+  flex: 1 1;
+  overflow: overlay;
+  flex-direction: column;
+  padding: 10rem;
+}
+
+.layout > div {
+  display: flex;
+}
+
+.layout > div > * {
+  flex: 1;
 }
