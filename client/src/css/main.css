@@ -273,10 +273,10 @@ button {
   0% {
     opacity: 0;
   }
-  25% {
+  12% {
     opacity: 1;
   }
-  75% {
+  88% {
     opacity: 1;
   }
   100% {
@@ -286,7 +286,7 @@ button {
 
 @keyframes move {
   from {
-    transform: scale(1.5);
+    transform: scale(1.05);
   }
   to {
     transform: scale(1);
@@ -294,8 +294,9 @@ button {
 }
 
 .animate-gallery {
-  animation: gallery 8s ease-in-out; /* , move 8s linear;*/
-  animation-fill-mode: forwards;
+  animation: 
+    gallery 8s ease-in-out 0s 1 normal forwards, 
+    move 8s linear 0s 1 normal forwards;
 }
 
 .overlay-gallery button.menu,
@@ -329,13 +330,12 @@ button {
   bottom: 50%;
 }
 
-.gallery .slogan:after {
-  content: "free and foolish, 2000'z";
+.gallery .slogan > .reflection {
   top: 70%;
   left: 0;
   transform: scaleY(-1.2);
   position: absolute;
-  background-image: linear-gradient(hsla(0, 0%, 100%, 0) 28%, rgba(255, 255, 255, 0.118));
+  background-image: linear-gradient(transparent 40%, rgba(255, 255, 255, 0.193));
   background-clip: text;
   color: transparent;
 }

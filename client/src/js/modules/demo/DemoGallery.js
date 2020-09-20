@@ -1,7 +1,7 @@
 import React from 'react';
 import images from '../../util/Images.js';
 
-const SLOGAN = "free and foolish, 2000'z";
+const SLOGAN = "free and foolish";
 
 class DemoGallery extends React.Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class DemoGallery extends React.Component {
 
     this.index = 0;
     this.imgInterval = null;
+    this.reflect = this.reflect.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +33,15 @@ class DemoGallery extends React.Component {
     this.props.onMount("gallery")
   }
 
+  reflect(text) {
+    return (
+      <label className="slogan large" ref={this.slogan}> 
+        {text} 
+        <label className="reflection" ref={this.slogan}> {text} </label>
+      </label>
+    )
+  }
+
   componentWillUnmount() {
     clearInterval(this.imgInterval);
     this.props.onMount();
@@ -40,7 +50,7 @@ class DemoGallery extends React.Component {
   render() {
     return (
       <div className="gallery">
-        <label className="slogan large" ref={this.slogan}> {SLOGAN} </label>
+        {this.reflect(SLOGAN)}
         <div className="images">
           {this.state.image}
         </div>
