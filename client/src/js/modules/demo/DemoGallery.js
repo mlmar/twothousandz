@@ -22,7 +22,7 @@ class DemoGallery extends React.Component {
       this.setState({
         image : <Wrapper classes="animate-gallery" src={placeholders[this.index].src} width="200" key={this.index}/>
       })
-    }, 8000);
+    }, 8100);
     this.props.onMount("gallery")
   }
 

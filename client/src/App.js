@@ -11,15 +11,17 @@ import HomePage from './js/modules/nav/HomePage.js';
 
 import DemoGallery from './js/modules/demo/DemoGallery.js';
 import DemoLayout from './js/modules/demo/DemoLayout.js';
+import DemoGrid from './js/modules/demo/DemoGrid.js';
 import DemoCSS from './js/modules/demo/DemoCSS.js';
 import DemoJS from './js/modules/demo/DemoJS.js';
 
 const ROUTES = [
   { name : "Landing Page", path : "/" , class : "homepage" },
-  { name : "Gallery Demo", path : "/demo/gallery" , class: "gallery"},
-  { name : "Layout Demo", path : "/demo/layout" , class : "demolayout"},
-  { name : "CSS Demo", path : "/demo/css" , class : "democss"},
-  { name : "JS Demo", path : "/demo/js" , class : "demojs"},
+  { name : "Gallery Placeholer", path : "/demo/gallery" , class: "gallery"},
+  { name : "Layout Placeholer", path : "/demo/layout" , class : "demolayout"},
+  { name : "Grid Placeholer", path : "/demo/grid" , class : "demogrid"}
+  // { name : "CSS Demo", path : "/demo/css" , class : "democss"},
+  // { name : "JS Demo", path : "/demo/js" , class : "demojs"},
 ];
 
 class App extends React.Component {
@@ -50,6 +52,7 @@ class App extends React.Component {
               <Route exact path="/" render={() => <HomePage title="2000'z" subtitle="give us money"/>}/>
               <Route exact path="/demo/gallery" render={() => <DemoGallery onMount={this.handleMount}/>}/>
               <Route exact path="/demo/layout" component={DemoLayout}/>
+              <Route exact path="/demo/grid" component={DemoGrid}/>
               <Route exact path="/demo/css" component={DemoCSS}/>
               <Route exact path="/demo/js" component={DemoJS}/>
               <Redirect to="/"/>

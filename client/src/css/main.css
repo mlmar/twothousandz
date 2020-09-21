@@ -22,6 +22,8 @@
   --primary: rgb(0, 51, 102);
   --secondary: rgb(204, 204, 204);
   --accent: rgb(255, 204, 0);
+
+  --landscape-width: 70%;
 }
 
 /* DEFAULTS */
@@ -83,7 +85,7 @@ label { white-space: nowrap; }
 .title      { font-size: 8rem; }
 .subtitle   { font-size: 3rem; }
 .large      { font-size: 2.5rem }
-.medium     { font-size: 2rem; }
+.medium     { font-size: 1.8rem; }
 .small      { font-size: 1rem; }
 
 .bold       { font-weight: bold; }
@@ -183,7 +185,7 @@ button {
 .nav > .routes {
   display: flex;
   flex-direction: column;
-  width: 20rem;
+  width: 15rem;
   height: 100vh;
   background: white;
   padding: 7rem 3rem 3rem 3rem;
@@ -194,10 +196,11 @@ button {
   align-items: center;
   justify-content: flex-start;
   background: none;
-  height: 2.3rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  white-space: nowrap;
   position: relative;
 }
+
 .nav > .routes > *:not(:last-child) {
   margin-bottom: 2rem;
 }
@@ -209,7 +212,7 @@ button {
 }
 
 .nav.visible.false > .routes {
-  margin-left: -20rem;
+  margin-left: -15rem;
 }
 
 .nav.visible.true > button.menu {
@@ -280,7 +283,7 @@ button {
   display: flex;
   flex-direction: row;
   flex: 1 1;
-  padding: 10rem;
+  padding: 12rem;
 }
 
 .homepage .colors {
@@ -397,7 +400,7 @@ button {
 
 .layout > .content {
   display: grid;
-  width: 60%;
+  width: var(--landscape-width);
 }
 
 .layout > .content > div {
@@ -407,4 +410,43 @@ button {
 .layout > .content > div > * {
   flex : 1;
   overflow: hidden;
+}
+
+/* GRID */
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  overflow: auto;
+  align-items: center;
+}
+
+.grid > .content {
+  display: grid;
+  width: var(--landscape-width);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid > .top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 2rem 0;
+  width: 100%;
+  border-bottom: solid rgb(238, 238, 238);
+  border-width: 1px;
+}
+
+.grid .item {
+  padding: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.bottom {
+  min-height: 10rem;
+  width: 100%;
+  border-top: solid rgb(238, 238, 238);
+  border-width: 1px;
 }
