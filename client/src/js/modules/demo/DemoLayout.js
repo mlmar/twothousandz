@@ -6,29 +6,23 @@ class DemoLayout extends React.Component {
   render() {
     return (
       <div className="layout">
-          <div>
-            <Wrapper src={shirts[0].src} width="200"/>
-            <div className="text">
-              <label className="medium"> TEXT </label>
+          <div className="content">
+            <div> 
+              <Wrapper src={shirts[0].src}/> 
+              <p className="title"> Placeholder text </p> 
+            </div> 
+            <div> 
+              <p className="title"> Placeholder text </p> 
+              <Wrapper src={shirts[1].src}/> 
             </div>
-          </div>
-          <div>
-            <div className="text">
-              <label className="medium"> TEXT </label>
+            <div> 
+              <Wrapper src={shirts[2].src}/>
+              <p className="title"> Placeholder text </p> 
             </div>
-            <Wrapper src={shirts[1].src} width="200"/> 
-          </div>
-          <div>
-            <Wrapper src={shirts[2].src} width="200"/> 
-            <div className="text">
-              <label className="medium"> TEXT </label>
+            <div> 
+              <p className="title"> Placeholder text </p> 
+              <Wrapper src={shirts[3].src}/>
             </div>
-          </div>
-          <div>
-            <div className="text">
-              <label className="medium"> TEXT </label>
-            </div>
-            <Wrapper src={shirts[3].src} width="200"/> 
           </div>
       </div>
 

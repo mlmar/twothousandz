@@ -20,7 +20,7 @@ class DemoGallery extends React.Component {
     this.imgInterval = setInterval(() => {
       this.index = this.index < placeholders.length - 1 ? this.index + 1 : 0;
       this.setState({
-        image : <Wrapper classs="animate-gallery" src={placeholders[this.index].src} width="200" key={this.index}/>
+        image : <Wrapper classes="animate-gallery" src={placeholders[this.index].src} width="200" key={this.index}/>
       })
     }, 8000);
     this.props.onMount("gallery")

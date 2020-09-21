@@ -1,11 +1,5 @@
 import React from 'react';
 
-
-
-const sq1 = { background: "rgb(252, 186, 3)" }
-const sq2 = { background: "rgb(209, 209, 209)" }
-const sq3 = { background: "white" }
-
 /*  HomePage component
  *    required props:
  *      {title} : title text
@@ -23,9 +17,9 @@ class HomePage extends React.Component {
           <label className="large"> color palette? </label>
           <br/>
           <div className="flex row colors">
-            <div style={sq1}></div>
-            <div style={sq2}></div>
-            <div style={sq3}></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </div>
       </div>
