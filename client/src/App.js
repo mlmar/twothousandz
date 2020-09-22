@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import './App.css';
@@ -6,7 +6,6 @@ import './css/main.css';
 import './css/mobile.css';
 
 import Nav from './js/modules/nav/Nav.js';
-// import Footer from './js/modules/nav/Footer.js';
 import HomePage from './js/modules/nav/HomePage.js';
 
 import DemoGallery from './js/modules/demo/DemoGallery.js';
@@ -20,49 +19,29 @@ const ROUTES = [
   { name : "Gallery Placeholer", path : "/demo/gallery" , class: "gallery"},
   { name : "Layout Placeholer", path : "/demo/layout" , class : "demolayout"},
   { name : "Grid Placeholer", path : "/demo/grid" , class : "demogrid"}
-  // { name : "CSS Demo", path : "/demo/css" , class : "democss"},
-  // { name : "JS Demo", path : "/demo/js" , class : "demojs"},
 ];
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      overlay : "",
-    }
+function App() {
+  const [overlay, setOverlay] = useState("");
 
-    this.handleMount = this.handleMount.bind(this);
-  }
-
-  /*  Pass this as as onMount prop to use in a compnentDidMount
-   */
-  handleMount(overlayClass) {
-    this.setState({ 
-      overlay : overlayClass
-    });
-  }
-
-  render() {
-    return (
-      <div className={`App overlay-${this.state.overlay}`}>
-        <Router>
-          <Nav routes={ROUTES}/>
-          <div className="main">
-            <Switch>
-              <Route exact path="/" render={() => <HomePage title="2000'z" subtitle="give us money"/>}/>
-              <Route exact path="/demo/gallery" render={() => <DemoGallery onMount={this.handleMount}/>}/>
-              <Route exact path="/demo/layout" component={DemoLayout}/>
-              <Route exact path="/demo/grid" component={DemoGrid}/>
-              <Route exact path="/demo/css" component={DemoCSS}/>
-              <Route exact path="/demo/js" component={DemoJS}/>
-              <Redirect to="/"/>
-            </Switch>
-          </div>
-          {/* <Footer/> */}
-        </Router>
-      </div>
-    )
-  }
+  return (
+    <div className={`App overlay-${overlay}`}>
+      <Router>
+        <Nav routes={ROUTES}/>
+        <div className="main">
+          <Switch>
+            <Route exact path="/" render={() => <HomePage title="2000'z" subtitle="give us money"/>}/>
+            <Route exact path="/demo/gallery" render={() => <DemoGallery onMount={setOverlay}/>}/>
+            <Route exact path="/demo/layout" component={DemoLayout}/>
+            <Route exact path="/demo/grid" component={DemoGrid}/>
+            <Route exact path="/demo/css" component={DemoCSS}/>
+            <Route exact path="/demo/js" component={DemoJS}/>
+            <Redirect to="/"/>
+          </Switch>
+        </div>
+      </Router>
+    </div>
+  )
 }
 
 export default App;

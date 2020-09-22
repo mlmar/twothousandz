@@ -1,55 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { placeholders } from '../../util/Images.js';
 import Wrapper from '../helper/Wrapper.js';
 
 const SLOGAN = "free and foolish";
 
-class DemoGallery extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      image : <Wrapper classes="animate-gallery" src={placeholders[0].src} width="200"/> 
-    }
+function DemoGallery({ onMount }) {
+  const [image, setImage] = useState(
+    <Wrapper classes="animate-gallery" src={placeholders[0].src} width="200"/>
+  );
 
-    this.index = 0;
-    this.imgInterval = null;
-    this.reflect = this.reflect.bind(this);
-  }
+  // equivalent to componentDidMOunt and componentWillUnmount
+  useEffect(() => {
+    var index = 0; // cycle through images index
+    const imgInterval = setInterval(() => {
+      index = index < placeholders.length - 1 ? index + 1 : 0;
+      setImage(
+        <Wrapper classes="animate-gallery" src={placeholders[index].src} width="200" key={index}/>
+      );
+    }, 8100); // update image every 8.1 seconds
+    return () => clearInterval(imgInterval);
+  }, []);
 
-  componentDidMount() {
-    this.imgInterval = setInterval(() => {
-      this.index = this.index < placeholders.length - 1 ? this.index + 1 : 0;
-      this.setState({
-        image : <Wrapper classes="animate-gallery" src={placeholders[this.index].src} width="200" key={this.index}/>
-      })
-    }, 8100);
-    this.props.onMount("gallery")
-  }
+  useEffect(() => {
+    if(onMount) onMount("gallery");
+    return onMount;
+  }, [onMount])
 
-  reflect(text) {
+  // reflection subcomponent
+  const Reflection = ({ text }) => {
     return (
-      <label className="slogan large" ref={this.slogan}> 
+      <label className="slogan large"> 
         {text} 
-        <label className="reflection" ref={this.slogan}> {text} </label>
+        <label className="reflection"> {text} </label>
       </label>
     )
   }
 
-  componentWillUnmount() {
-    clearInterval(this.imgInterval);
-    this.props.onMount();
-  }
-
-  render() {
-    return (
-      <div className="gallery">
-        {this.reflect(SLOGAN)}
-        <div className="images">
-          {this.state.image}
-        </div>
+  return (
+    <div className="gallery">
+      <Reflection text={SLOGAN}/>
+      <div className="images">
+        {image}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default DemoGallery;

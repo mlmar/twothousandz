@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const ICON = {
@@ -6,51 +6,44 @@ const ICON = {
 }
 
 /*  Nav component
- *    required props:
- *      {onClick} : click handler for nav buttons (not necessary with react router)
- *      {routes}  : titles of reach of page to show as nav buttons
+ *    {onClick} : click handler for nav buttons (not necessary with react router)
+ *    {routes}  : titles of reach of page to show as nav buttons
  */
-class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      dropped : false
-    }
-
-    this.handleClick = this.handleClick.bind(this);
-    this.toggle = this.toggle.bind(this);
-  }
-
+function Nav({ routes, onClick }) {
+  const [dropped, toggleDropped] = useState(false);
+  const navDiv = useRef(null);
+  
   /*  On click event handler for nav buttons
    *    passed overlay class to props callback
    */
-  handleClick(e) {
+  const handleNavClick = (e) => {
     var id = e.target.id;
-    if(this.props.onClick) this.props.onClick(id);
-    this.toggle();
+    if(onClick) onClick(id);
+    toggleDropped(false);
   }
 
-  /*  Toggles "visible true" class for nav
-   */
-  toggle() {
-    this.setState({ dropped : !this.state.dropped });
-  }
+  // close the nav when user focuses outside component
+  useEffect(() => {
+    document.addEventListener("click", handleOutOfFocus);
+    return () => document.removeEventListener("click", handleOutOfFocus);
+  }, [])
 
-  render() {
-    return (
-      <div className={`nav visible ${this.state.dropped}`}>
-        <button className="menu" onClick={this.toggle}> {ICON.MENU} </button> 
-        <div className={`routes`}>
-          {
-            this.props?.routes.map((route, i) => {
-              return <Link to={route.path} id={route.class} key={i} onClick={this.handleClick}> {route.name} </Link>
-            })
-          }
-        </div>
+  const handleOutOfFocus = (e) => {
+    if(!navDiv?.current.contains(e.target)) toggleDropped(false);
+  };
+
+  const NavButton = (props) => (
+    <Link className="item" to={props.path} id={props.class} onClick={handleNavClick}> {props.name} </Link> 
+  )
+
+  return (
+    <div className={`nav visible ${dropped}`} ref={navDiv}>
+      <div className="routes">
+        { routes?.map((route, i) => <NavButton {...route} key={i}/>) }
       </div>
-    )
-  }
+      <button className="menu" onClick={() => toggleDropped(!dropped)}> {ICON.MENU} </button>
+    </div>
+  )
 }
 
 export default Nav;
