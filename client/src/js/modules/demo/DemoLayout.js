@@ -1,5 +1,5 @@
 import React from 'react';
-import { shirts } from '../../util/Images.js';
+import { shirts, newspaper } from '../../util/Images.js';
 import Wrapper from '../helper/Wrapper.js';
 
 function DemoLayout() {
@@ -7,20 +7,20 @@ function DemoLayout() {
     <div className="layout">
         <div className="content">
           <div> 
-            <Wrapper src={shirts[0].src}/> 
+            <Wrapper fit="horizontal" src={newspaper}/> 
             <p className="title"> Placeholder text </p> 
           </div> 
           <div> 
             <p className="title"> Placeholder text </p> 
-            <Wrapper src={shirts[1].src}/> 
+            <Wrapper fit="horizontal" src={shirts[1].src}/> 
           </div>
           <div> 
-            <Wrapper src={shirts[2].src}/>
+            <Wrapper fit="horizontal" src={shirts[2].src}/>
             <p className="title"> Placeholder text </p> 
           </div>
           <div> 
             <p className="title"> Placeholder text </p> 
-            <Wrapper src={shirts[3].src}/>
+            <Wrapper fit="horizontal" src={shirts[3].src}/>
           </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Wrapper from '../helper/Wrapper.js';
-import { shirts } from '../../util/Images.js';
+import { transparent } from '../../util/Images.js';
 
 function DemoGrid() {
   const [items, setItems] = useState([]);
@@ -9,8 +9,8 @@ function DemoGrid() {
     return items.map((item, i ) => {
       return (
         <div className="item" key={i}>
-          <Wrapper src={item.src}/>
-          <label className="small"> {item.src} </label>
+          <Wrapper fit="horizontal" src={item.src}/>
+          <label className="small flex row center justify"> shirt </label>
         </div>
       )
     })
@@ -19,7 +19,7 @@ function DemoGrid() {
   useEffect(() => {
     var temp = [];
     for(var i = 0; i < 20; i++) {
-      temp.push(shirts[i % 4]);
+      temp.push(transparent[i % 7]);
     }
     setItems(temp);
   }, []);

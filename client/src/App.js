@@ -16,9 +16,9 @@ import DemoJS from './js/modules/demo/DemoJS.js';
 
 const ROUTES = [
   { name : "Landing Page", path : "/" , class : "homepage" },
-  { name : "Gallery Placeholer", path : "/demo/gallery" , class: "gallery"},
-  { name : "Layout Placeholer", path : "/demo/layout" , class : "demolayout"},
-  { name : "Grid Placeholer", path : "/demo/grid" , class : "demogrid"}
+  { name : "Gallery Placeholder", path : "/demo/gallery" , class: "gallery"},
+  { name : "Layout Placeholder", path : "/demo/layout" , class : "demolayout"},
+  { name : "Grid Placeholder", path : "/demo/grid" , class : "demogrid"}
 ];
 
 function App() {
