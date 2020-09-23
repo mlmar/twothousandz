@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { placeholders } from '../../util/Images.js';
-import Wrapper from '../helper/Wrapper.js';
+import Wrapper from '../ui/Wrapper.js';
 
 const SLOGAN = "free and foolish";
 

@@ -23,7 +23,20 @@
     margin-left: -100vw;
   }
 
-  .banner {
-    height: 10rem;
+  .nav > button.menu {
+    top: .5rem;
+    left: .5rem;
   }
+
+  /* TEMPATE */
+
+  .page {
+    padding: 0 .5rem 0 .5rem;
+  }
+
+  .item-grid > .item-container{
+    width: 50%;
+  }
+  
+
 }

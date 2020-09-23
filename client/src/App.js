@@ -6,19 +6,14 @@ import './css/main.css';
 import './css/mobile.css';
 
 import Nav from './js/modules/nav/Nav.js';
-import HomePage from './js/modules/nav/HomePage.js';
-
+import Page from './js/modules/template/Page.js';
 import DemoGallery from './js/modules/demo/DemoGallery.js';
-import DemoLayout from './js/modules/demo/DemoLayout.js';
-import DemoGrid from './js/modules/demo/DemoGrid.js';
 import DemoCSS from './js/modules/demo/DemoCSS.js';
 import DemoJS from './js/modules/demo/DemoJS.js';
 
 const ROUTES = [
-  { name : "Landing Page", path : "/" , class : "homepage" },
-  { name : "Gallery Placeholder", path : "/demo/gallery" , class: "gallery"},
-  { name : "Layout Placeholder", path : "/demo/layout" , class : "demolayout"},
-  { name : "Grid Placeholder", path : "/demo/grid" , class : "demogrid"}
+  { name : "Generic Page", path : "/" , class : "homepage" },
+  { name : "Gallery", path : "/demo/gallery" , class: "gallery"}
 ];
 
 function App() {
@@ -30,10 +25,8 @@ function App() {
         <Nav routes={ROUTES}/>
         <div className="main">
           <Switch>
-            <Route exact path="/" render={() => <HomePage title="2000'z" subtitle="give us money"/>}/>
+            <Route exact path="/" component={Page}/>
             <Route exact path="/demo/gallery" render={() => <DemoGallery onMount={setOverlay}/>}/>
-            <Route exact path="/demo/layout" component={DemoLayout}/>
-            <Route exact path="/demo/grid" component={DemoGrid}/>
             <Route exact path="/demo/css" component={DemoCSS}/>
             <Route exact path="/demo/js" component={DemoJS}/>
             <Redirect to="/"/>
