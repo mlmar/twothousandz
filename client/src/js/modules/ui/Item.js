@@ -11,7 +11,7 @@ function Item(props) {
       <Wrapper 
         fit={props.fit ? props.fit.toLowerCase() : "horizontal"} 
         src={props?.images[0]}
-        className={props.className}
+        className={`primary ${props.className}`}
       />
       { props?.images[1] && 
         <Wrapper 

@@ -6,7 +6,7 @@ const SLOGAN = "free and foolish";
 
 function DemoGallery({ onMount }) {
   const [image, setImage] = useState(
-    <Wrapper classes="animate-gallery" fit="horizontal" src={placeholders[0].src} width="200"/>
+    <Wrapper className="animate-gallery" fit="horizontal" src={placeholders[0].src} width="200"/>
   );
 
   // equivalent to componentDidMOunt and componentWillUnmount
@@ -15,7 +15,7 @@ function DemoGallery({ onMount }) {
     const imgInterval = setInterval(() => {
       index = index < placeholders.length - 1 ? index + 1 : 0;
       setImage(
-        <Wrapper classes="animate-gallery" fit="horizontal" src={placeholders[index].src} width="200" key={index}/>
+        <Wrapper className="animate-gallery" fit="horizontal" src={placeholders[index].src} width="200" key={index}/>
       );
     }, 8100); // update image every 8.1 seconds
     return () => clearInterval(imgInterval);

@@ -6,6 +6,7 @@ function Demo() {
       <div>
         <label className="title"> .title </label>
         <label className="subtitle"> .subtitle </label>
+        <label className="large"> .large </label>
         <label className="medium"> .medium </label>
         <label className="small"> .small </label>
       </div>

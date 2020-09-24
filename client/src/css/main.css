@@ -84,15 +84,17 @@
 
 label { white-space: nowrap; }
 
-.title      { font-size: 8rem; }
-.subtitle   { font-size: 3rem; }
-.large      { font-size: 2.5rem }
-.medium     { font-size: 1.8rem; }
-.small      { font-size: .9rem; }
+.title      { font-size: 7rem; }
+.subtitle   { font-size: 2.7rem; }
+.large      { font-size: 1.8rem }
+.medium     { font-size: 1.2rem; }
+.small      { font-size: .8rem; }
 
 .bold       { font-weight: bold; }
 .italic     { font-style: italic; }
 .underline  { text-decoration: underline; }
+
+.secondary  { color : var(--secondary); }
 
 /* BUTTONS AND CLICKABLES */
 
@@ -144,9 +146,7 @@ button {
 .center.align { align-items: center; }
 .center.justify { justify-content: center; }
 
-
-
-
+.wrap { flex-wrap: wrap };
 
 /* APP */
 
@@ -203,14 +203,14 @@ button {
   align-items: center;
   justify-content: flex-start;
   background: none;
-  font-size: 1rem;
+  font-size: .9rem;
   white-space: nowrap;
   position: relative;
   text-decoration: none;
 }
 
 .nav > .routes > .item:not(:last-child) {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5em;
 }
 
 
@@ -256,7 +256,7 @@ button {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: overlay;
 }
 
 .main > div {
@@ -276,6 +276,7 @@ button {
   display: flex;
   flex-direction: column;
   min-height: fit-content;
+  flex: 1 1;
 }
 
 .page .info {
@@ -320,21 +321,62 @@ button {
   flex-wrap: wrap;
 }
 
-.item-grid > .item-container {
+.item-grid > * {
   width: 25%;
   margin-bottom: 1rem;
 }
 
 /* DOUBLE ITEM */
 
-.item-container { position: relative; }
-.item-container:hover > .secondary { visibility: visible; }
-.item-container:hover { visibility: hidden }
+.item-container { 
+  position: relative; 
+  padding: 1em 
+}
 
-.secondary {
+.item-container:hover > .primary { 
+  visibility: hidden; 
+}
+
+.item-container:hover > .secondary { 
+  visibility: visible; 
+  padding: 1em;
+  overflow: hidden;
+}
+/* 
+.item-container:hover > .secondary > img {
+  transform: scale(2);
+} */
+
+.item-container > .secondary {
   visibility: hidden;
   position: absolute;
   top: 0;
+  left: 0;
+}
+
+/* ITEM PAGE */
+
+.item-page {
+  display: flex;
+  flex: 1 1;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 1rem;
+}
+.item-page > .display {
+  width: 65%; 
+}
+
+.item-page > .description {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.item-page > .description > .images > * { width: 25%; }
+.item-page > .description > .images > *:hover { 
+  background: var(--btn-light-hover);
+  cursor: pointer;
 }
 
 /* IMAGE WRAPPER FIT ORIENTAITONS */

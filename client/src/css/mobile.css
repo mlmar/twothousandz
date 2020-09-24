@@ -16,11 +16,12 @@
 
   /* animate nav */
   .nav > .routes {
-    width: 100vw;
+    width: 65vw;
+    padding: 5rem 1rem 1rem 1rem;
   }
 
   .nav.visible.false > .routes {
-    margin-left: -100vw;
+    margin-left: -65vw;
   }
 
   .nav > button.menu {
@@ -34,9 +35,16 @@
     padding: 0 .5rem 0 .5rem;
   }
 
-  .item-grid > .item-container{
+  .item-grid > * {
     width: 50%;
   }
-  
+
+  .item-page {
+    flex-direction: column;
+  }
+
+  .item-page > .display {
+    width: 100%;
+  }
 
 }

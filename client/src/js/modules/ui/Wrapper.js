@@ -6,11 +6,11 @@ import React from 'react';
  *    {fit}       : fill vertically or horizontally, horizontal by default
  *    {className} : css styles
  */
-export default function Wrapper({ src, width, fit, className }) {
-  var orientation = fit ? fit : "vertical";
+export default function Wrapper(props) {
+  var orientation = props.fit ? props.fit : "vertical";
   return (
-    <span className={`wrapper ${className} fit-${orientation}`}> 
-      <img src={src} alt={src} width={width} />
+    <span className={`wrapper ${props.className} fit-${orientation}`}> 
+      <img src={props.src} alt={props.src} width={props.width ? props.width : "50"} id={props.id}/>
     </span>
   )
 }
