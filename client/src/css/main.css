@@ -285,7 +285,7 @@ button {
   align-items: center;
   justify-content: center;
   height: 15rem;
-  box-shadow: 0 -1px 1px 0 var(--secondary);
+  box-shadow: 0 -2px 1px -1px var(--secondary);
   flex: 0 0 auto;
 }
 
@@ -298,7 +298,7 @@ button {
   position: relative;
   flex: 0 0 auto;  
   margin-bottom: 1rem;
-  box-shadow: 0 1px 1px 0 var(--secondary);
+  box-shadow: 0 2px 1px -1px var(--secondary);
 }
 
 
