@@ -4,6 +4,9 @@ import Wrapper from '../ui/Wrapper.js';
 
 const SLOGAN = "free and foolish";
 
+/*  DemoGallery componenent
+ *    {onMount} : callback in main div to apply css styles to change menu button
+ */
 function DemoGallery({ onMount }) {
   const [image, setImage] = useState(
     <Wrapper className="animate-gallery" fit="horizontal" src={placeholders[0].src} width="200"/>
@@ -22,8 +25,10 @@ function DemoGallery({ onMount }) {
   }, []);
 
   useEffect(() => {
-    if(onMount) onMount("gallery");
-    return onMount;
+    if(onMount) { 
+      onMount("gallery");
+      return onMount;
+    }
   }, [onMount])
 
   // reflection subcomponent

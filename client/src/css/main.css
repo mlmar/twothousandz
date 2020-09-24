@@ -275,8 +275,7 @@ button {
 .page .content {
   display: flex;
   flex-direction: column;
-  min-height: fit-content;
-  flex: 1 1;
+  flex: 1 0 auto;
 }
 
 .page .info {
@@ -356,11 +355,12 @@ button {
 
 .item-page {
   display: flex;
-  flex: 1 1;
+  flex: 1 0 auto;
   flex-direction: row;
   align-items: stretch;
   padding: 1rem;
 }
+
 .item-page > .display {
   width: 65%; 
 }
@@ -368,7 +368,7 @@ button {
 .item-page > .description {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 0;
 }
 
 .item-page > .description > .images > * { width: 25%; }

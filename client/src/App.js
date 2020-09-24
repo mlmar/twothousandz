@@ -7,7 +7,9 @@ import './css/mobile.css';
 
 import Nav from './js/modules/nav/Nav.js';
 import Page from './js/modules/template/Page.js';
-import DemoRoutes from './js/modules/demo/DemoRoutes.js';
+import DemoGallery from './js/modules/demo/DemoGallery.js';
+import DemoCSS from './js/modules/demo/DemoCSS.js';
+import DemoJS from './js/modules/demo/DemoJS.js';
 
 const ROUTES = [
   { name : "Generic Page", path : "/shop" , class : "homepage" },
@@ -17,6 +19,17 @@ const ROUTES = [
 function App() {
   const [overlay, setOverlay] = useState("");
 
+  const demoRoutes = ({ match }) => {
+    const path = match.path;
+    return (
+      <>
+        <Route exact path={`${path}/gallery`} render={() => <DemoGallery onMount={setOverlay}/>}/>
+        <Route exact path={`${path}/css`} component={DemoCSS}/>
+        <Route exact path={`${path}/js`} component={DemoJS}/>
+      </>
+    )
+  }
+
   return (
     <div className={`App overlay-${overlay}`}>
       <Router>
@@ -24,7 +37,7 @@ function App() {
         <div className="main">
           <Switch>
             <Route path="/shop" component={Page}/>
-            <Route path="/demo" render={(props) => <DemoRoutes {...props} onMount={setOverlay}/>}/>
+            <Route path="/demo" component={demoRoutes}/>
             <Redirect to="/shop"/>
           </Switch>
         </div>

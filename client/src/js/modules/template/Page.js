@@ -7,8 +7,10 @@ import Item from '../ui/Item.js';
 import ItemPage from './ItemPage.js';
 
 function Page(props) {
-  const path = props.match.path;
+  const path = props?.match?.path;
+  const getItem = (index) => matchedImages[index];
 
+  // demo content mapping front/back images to a css item-grid
   const PageContent = () => (
     <div className="content">
       <section className="item-grid">
@@ -27,7 +29,7 @@ function Page(props) {
 
       <Switch>
         <Route exact path={path} component={PageContent}/>
-        <Route exact path={`${path}/:itemName/:itemID`} render={(props) => <ItemPage {...props} items={matchedImages}/>}/>
+        <Route exact path={`${path}/:itemName/:itemID`} render={(props) => <ItemPage {...props} getItem={getItem}/>}/>
         <Redirect to={path}/>
       </Switch>
 
