@@ -30,7 +30,7 @@ export const transparent = [
   { src : Y2K_WHITE }
 ]
 
-export const circle = "https://cdn.discordapp.com/attachments/757487416327274558/757833753341984818/CIRCULAR_BACK_DESIGN_-_WIP.png";
+export const circle = "https://cdn.discordapp.com/attachments/756750758782828570/757829736453111828/CIRCULAR_BACK_DESIGN_-_WIP.jpg";
 
 export const matchedImages = [
   { name : "newspaper", price : "2500.00", images : [NEWSPAPER_BLACK, FRONT_BLACK], },
