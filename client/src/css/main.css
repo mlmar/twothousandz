@@ -11,10 +11,10 @@
   --fg-alt: rgb(162, 162, 162);
 
   --btn-dark: rgb(48, 48, 48);
-  --btn-dark-hover: rgb(34, 34, 34);
-  --btn-dark-pressed: rgb(14, 14, 14);
+  --btn-dark-hover: rgb(48, 48, 48);
+  --btn-dark-pressed: rgb(77, 77, 77);
   
-  --btn-light: rgb(244, 244, 244);
+  --btn-light: rgb(235, 235, 235);
   --btn-light-hover: rgb(226, 226, 226);
   --btn-light-pressed: rgb(197, 197, 197);
 
@@ -101,13 +101,12 @@ label { white-space: nowrap; }
 a, a[href], button {
   display: inherit;
   cursor: pointer;
-  color: inherit;
+  text-decoration: inherit;
 }
 
 button {
   display: flex;
   border: none;
-  border-radius: .4rem;
   outline: none;
   align-items: center;
   justify-content: center;
@@ -116,7 +115,7 @@ button {
 .dark, .light {
   padding: .3rem 1rem .3rem 1rem;
   transition: all .5s ease;
-  box-shadow: 0 0 1px 1px rgb(233, 233, 233);
+  margin: .2rem 0 .2rem 0;
 }
 
 .dark {
@@ -129,7 +128,7 @@ button {
 
 .light {
   background: var(--btn-light);
-  color: black;
+  color: var(--fg);
 }
 
 .light:hover { background: var(--btn-light-hover); }
@@ -203,6 +202,7 @@ button {
   align-items: center;
   justify-content: flex-start;
   background: none;
+  color: var(--fg);
   font-size: .9rem;
   white-space: nowrap;
   position: relative;
@@ -266,10 +266,19 @@ button {
   height: auto;
 }
 
+/* CART */
+
+.cart-button {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  z-index: 100;
+}
+
 /* TEMPLATE */
 
 .page {
-  padding: 0 5vmax 0 5vmax;
+  padding: 0 15vmax 0 15vmax;
 }
 
 .page .content {
@@ -369,6 +378,10 @@ button {
   display: flex;
   flex-direction: column;
   flex: 1 0;
+}
+
+.item-page > .description > *:not(:last-child) {
+  margin-bottom: 1.5rem;
 }
 
 .item-page > .description > .images > * { width: 25%; }

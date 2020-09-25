@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import './App.css';
@@ -18,6 +18,8 @@ const ROUTES = [
 
 function App() {
   const [overlay, setOverlay] = useState("");
+  const [cart, setCart] = useState([]); // may transition to redux at some point to reduce callbacks
+  const handleAddToCart = (itemID) => setCart(cart.concat(itemID));
 
   const demoRoutes = ({ match }) => {
     const path = match.path;
@@ -36,7 +38,7 @@ function App() {
         <Nav routes={ROUTES}/>
         <div className="main">
           <Switch>
-            <Route path="/shop" component={Page}/>
+            <Route path="/shop" render={(props) => <Page {...props} addToCart={handleAddToCart}/>}/>
             <Route path="/demo" component={demoRoutes}/>
             <Redirect to="/shop"/>
           </Switch>

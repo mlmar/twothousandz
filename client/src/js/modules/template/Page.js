@@ -6,17 +6,18 @@ import Wrapper from '../ui/Wrapper.js';
 import Item from '../ui/Item.js';
 import ItemPage from './ItemPage.js';
 
-function Page(props) {
-  const path = props?.match?.path;
+function Page({ match, addToCart }) {
+  const path = match?.path;
   const getItem = (index) => matchedImages[index];
+
 
   // demo content mapping front/back images to a css item-grid
   const PageContent = () => (
     <div className="content">
       <section className="item-grid">
-        { matchedImages.map((item, i) => <Link to={`${path}/${item.name}/${i}`} key={i}> <Item {...item} className="fade in slow"/> </Link>) }
-        { matchedImages.reverse().map((item, i) => <Link to={`${path}/${item.name}/${i}`} key={i}> <Item {...item} className="fade in slow"/> </Link>) }
-        { matchedImages.reverse().map((item, i) => <Link to={`${path}/${item.name}/${i}`} key={i}> <Item {...item} className="fade in slow"/> </Link>) }
+        { matchedImages.map((item, i) => <Link to={`${path}/${item.name}/${i}`} key={i}> <Item {...item}/> </Link>) }
+        { matchedImages.reverse().map((item, i) => <Link to={`${path}/${item.name}/${i}`} key={i}> <Item {...item}/> </Link>) }
+        { matchedImages.reverse().map((item, i) => <Link to={`${path}/${item.name}/${i}`} key={i}> <Item {...item}/> </Link>) }
       </section>
     </div>
   )
@@ -29,7 +30,7 @@ function Page(props) {
 
       <Switch>
         <Route exact path={path} component={PageContent}/>
-        <Route exact path={`${path}/:itemName/:itemID`} render={(props) => <ItemPage {...props} getItem={getItem}/>}/>
+        <Route exact path={`${path}/:itemName/:itemID`} render={(props) => <ItemPage {...props} getItem={getItem} onAdd={addToCart}/>}/>
         <Redirect to={path}/>
       </Switch>
 
