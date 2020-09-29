@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Wrapper from '../ui/Wrapper.js';
+import { Context } from'../../global/Store.js';
+
 
 function ItemPage({ match, getItem, onAdd}) {
+  // global
+  const [state, dispatch] = useContext(Context);
+
   // states
   const [index, setIndex] = useState(1);
   const setImage = e => setIndex(e.target.tagName === "IMG" ? e.target.id : 1);
   
   const itemID = parseInt(match?.params?.itemID);
   const item = getItem(itemID);
-  const handleAdd = () => alert("not implemented");
+
+  const handleAdd = () => {
+    if(!state.items.includes(item)) {
+      dispatch({ type: 'SELECT_ITEM', item });
+    }
+  };
   
   return (
     <div className="item-page">
@@ -27,7 +37,7 @@ function ItemPage({ match, getItem, onAdd}) {
 
         <span className="flex col">
           <button className="add-to-cart light" onClick={handleAdd}> add to cart </button>
-          <button className="dark" onClick={handleAdd}> take my wallet </button>
+          <button className="dark"> take my wallet </button>
         </span>
         
       </div>

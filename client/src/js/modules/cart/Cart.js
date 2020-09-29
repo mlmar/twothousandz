@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from'../../global/Store.js';
 
-function Cart({ items }) {
+function Cart() {
+  const [state] = useContext(Context);
+
   return (
-    <div>
-
+    <div className="cart">
+      <label className="medium"> {state.items.length} items in cart -- todo </label>
+      <br/>
+      {
+        state.items.map((item, i ) => (
+          <label className="small" key={i}> {JSON.stringify(item)} </label>
+        ))
+      }
     </div>
   )
 }
