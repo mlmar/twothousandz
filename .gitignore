@@ -1,5 +1,4 @@
 server/node_modules
-.vscode
 
 clinet/.env
 client/node_modules

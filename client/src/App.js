@@ -23,7 +23,7 @@ function App() {
   const [cart, setCart] = useState([]); // may transition to redux at some point to reduce callbacks
   const handleAddToCart = (itemID) => setCart(cart.concat(itemID));
 
-  const demoRoutes = ({ match }) => {
+  const DemoRoutes = ({ match }) => {
     const path = match.path;
     return (
       <>
@@ -42,7 +42,7 @@ function App() {
           <div className="main">
             <Switch>
               <Route path="/shop" render={(props) => <Page {...props} addToCart={handleAddToCart}/>}/>
-              <Route path="/demo" component={demoRoutes}/>
+              <Route path="/demo" component={DemoRoutes}/>
               <Redirect to="/shop"/>
             </Switch>
           </div>
